@@ -6,15 +6,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Health check
 app.get("/", (req, res) => {
-  res.json({
-    status: "online",
-    service: "AI Voice Studio"
-  });
+  res.json({ status: "online", service: "AI Voice Studio" });
 });
 
-// TTS endpoint
 app.post("/tts", async (req, res) => {
   const { text, voice_id = "Wise_Woman", speed = 1.0 } = req.body;
 
